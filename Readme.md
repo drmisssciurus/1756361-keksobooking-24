@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Alina](https://up.htmlacademy.ru/javascript/24/user/1756361).
-* Наставник: `Неизвестно`.
+* Наставник: [Pavel Nukalo](https://htmlacademy.ru/profile/nyukalopavel).
 
 ---
 
