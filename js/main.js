@@ -1,22 +1,22 @@
 function getRandomInteger (min, max) {
   if (max <= min) {
-    alert(`Максимальное ${max} число не может быть меньше или равно ${min}`)
-    return
+    return(`Максимальное ${max} число не может быть меньше или равно ${min}`);
+
   }
   return Math.floor(min + Math.random() * (max - min));
 }
 
-console.log(getRandomInteger(3,3));
+getRandomInteger(9,4);
 
 function getRandomFloat (min, max, count) {
   if (max <= min) {
-    alert(`Максимальное ${max} число не может быть меньше или равно ${min}`)
-    return
+    return(`Максимальное ${max} число не может быть меньше или равно ${min}`);
+
   }
   return (min + Math.random() * (max - min)).toFixed(count);
 }
 
-console.log(getRandomFloat (2, 4, 9));
+getRandomFloat (2, 4, 9);
 
 //const getRandomFloat = (min, max, count) => {
 //   if (max <= min) {
@@ -25,5 +25,3 @@ console.log(getRandomFloat (2, 4, 9));
 //   }
 //   return (min + Math.random() * (max - min)).toFixed(count);
 // }
-
-console.log(getRandomFloat (2, 4, 9));
