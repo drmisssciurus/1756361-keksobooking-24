@@ -113,6 +113,11 @@ const createNearestPlaces = () => {
   };
 };
 
-const similarAdvertisements = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlaces);
+// const similarAdvertisements = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlaces);
 
-similarAdvertisements();
+const makeSimilarAdvertisements = () => {
+  const similarAdvertisements = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlaces);
+  return similarAdvertisements;
+};
+
+makeSimilarAdvertisements();
