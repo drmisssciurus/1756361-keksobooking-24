@@ -1,3 +1,20 @@
+const MIN_PRICE = 1;
+const MAX_PRICE = 99999999;
+
+const MIN_ROOMS = 1;
+const MAX_ROOMS = 6;
+
+const MIN_QUESTS = 1;
+const MAX_QUESTS = 12;
+
+const MIN_LAT = 35.65000;
+const MAX_LAT = 35.70000;
+
+const MIN_LNG = 139.70000;
+const MAX_LNG = 139.80000;
+
+const SIMILAR_AUTHOR_COUNT = 10;
+
 function getRandomInteger (min, max) {
   if (max <= min) {
     return(`Максимальное ${max} число не может быть меньше или равно ${min}`);
@@ -10,18 +27,14 @@ function getRandomInteger (min, max) {
 
 getRandomInteger(9,4);
 
-
-
 const getRandomFloat = (min, max) => {
   if (max <= min) {
-    alert(`Максимальное ${max} число не может быть меньше или равно ${min}`)
-    return;
+    return(`Максимальное ${max} число не может быть меньше или равно ${min}`);
   }
   return (min + Math.random() * (max - min)).toFixed(5);
 };
 
-
-const arrayOfAvatar = [
+const arrayOfAvatars = [
   '01',
   '02',
   '03',
@@ -34,7 +47,7 @@ const arrayOfAvatar = [
   '10',
 ];
 
-const arrayOfType = [
+const arrayOfTypes = [
   'palace',
   'flat',
   'house',
@@ -42,13 +55,7 @@ const arrayOfType = [
   'hotel',
 ];
 
-const arrayOfCheckin = [
-  '12:00',
-  '13:00',
-  '14:00',
-];
-
-const arrayOfCheckout = [
+const arrayOfBookTimes = [
   '12:00',
   '13:00',
   '14:00',
@@ -69,65 +76,43 @@ const arrayOfPhotos = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-const MIN_PRICE = 1;
-const MAX_PRICE = 99999999;
-
-const MIN_ROOMS = 1;
-const MAX_ROOMS = 6;
-
-const MIN_QUESTS = 1;
-const MAX_QUESTS = 12;
-
-const MIN_LAT = 35.65000;
-const MAX_LAT = 35.70000;
-
-const MIN_LNG = 139.70000;
-const MAX_LNG = 139.80000;
-
-const NUMBER_OF_AVATARS_MIN = 1;
-const NUMBER_OF_AVATARS_MAX = 10;
-
-const SIMILAR_AUTHOR_COUNT = 10;
-
-const createAuthor= () => {
-  const author = {
-    avatar: `img/avatars/user0${getRandomInteger(
-      NUMBER_OF_AVATARS_MIN,
-      NUMBER_OF_AVATARS_MAX)}.png`,
-  }
-  return author;
+const createAuthors= () => {
+  const authors = {
+    avatar: `img/avatars/user${arrayOfAvatars[getRandomInteger(0,  arrayOfAvatars.length - 1)]}.png`,
+  };
+  return authors;
 };
 
-const createLocation = () => {
-  const location = {
+const createLocations = () => {
+  const locations = {
     lat: getRandomFloat(MIN_LAT, MAX_LAT),
     lng: getRandomFloat(MIN_LNG, MAX_LNG),
   };
-  return location;
+  return locations;
 };
 
-const createNearestPlace = () => {
-  const geoLocation = createLocation();
+const createNearestPlaces = () => {
+  const geoLocation = createLocations();
 
   return {
-    author: createAuthor(),
+    author: createAuthors(),
     offer: {
       title: 'Посмотрите на это предложение! Возможно вам понравится!',
       adress: `${geoLocation.lat}, ${geoLocation.lng}`,
       price: getRandomInteger(MIN_PRICE, MAX_PRICE),
-      type: arrayOfType[getRandomInteger(0,  arrayOfType.length - 1)],
+      type: arrayOfTypes[getRandomInteger(0,  arrayOfTypes.length - 1)],
       rooms: getRandomInteger(MIN_ROOMS, MAX_ROOMS),
       quest: getRandomInteger(MIN_QUESTS, MAX_QUESTS),
-      checkin: arrayOfCheckin[getRandomInteger(0,  arrayOfCheckin.length - 1)],
-      checkout: arrayOfCheckout[getRandomInteger(0,  arrayOfCheckout.length - 1)],
+      checkin: arrayOfBookTimes[getRandomInteger(0,  arrayOfBookTimes.length - 1)],
+      checkout: arrayOfBookTimes[getRandomInteger(0,  arrayOfBookTimes.length - 1)],
       features: arrayOfFeatures.slice(getRandomInteger(0,  arrayOfFeatures.length - 1)),
       description: 'Такой жил-площади позавидует любой кот! Сушеная рыба вместо штор!',
       photos: arrayOfPhotos.slice(getRandomInteger(0, arrayOfPhotos.length - 1)),
     },
-    location: createLocation(),
+    location: createLocations(),
   };
 };
 
-const similarAuthor = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlace);
+const similarAdvertisements = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlaces);
 
-console.log(similarAuthor);
+similarAdvertisements();
