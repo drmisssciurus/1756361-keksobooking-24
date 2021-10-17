@@ -1,3 +1,8 @@
+import {
+  getRandomInteger,
+  getRandomFloat
+} from './util.js';
+
 const MIN_PRICE = 1;
 const MAX_PRICE = 99999999;
 
@@ -14,25 +19,6 @@ const MIN_LNG = 139.70000;
 const MAX_LNG = 139.80000;
 
 const SIMILAR_AUTHOR_COUNT = 10;
-
-function getRandomInteger (min, max) {
-  if (max <= min) {
-    return(`Максимальное ${max} число не может быть меньше или равно ${min}`);
-
-  }
-  return Math.floor(min + Math.random() * (max - min));
-}
-
-// const getRandomInteger = array[Math.floor(Math.random() * array.length)];
-
-getRandomInteger(9,4);
-
-const getRandomFloat = (min, max) => {
-  if (max <= min) {
-    return(`Максимальное ${max} число не может быть меньше или равно ${min}`);
-  }
-  return (min + Math.random() * (max - min)).toFixed(5);
-};
 
 const arrayOfAvatars = [
   '01',
@@ -112,8 +98,6 @@ const createNearestPlaces = () => {
     location: createLocations(),
   };
 };
-
-// const similarAdvertisements = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlaces);
 
 const makeSimilarAdvertisements = () => {
   const similarAdvertisements = Array.from({length: SIMILAR_AUTHOR_COUNT}, createNearestPlaces);
