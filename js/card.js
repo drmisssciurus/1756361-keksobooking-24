@@ -19,7 +19,7 @@ const fillPhotos = (photosElement, photosArray) => {
 
   photosArray.forEach((item) => {
     const imgElement = document.createElement('img');
-
+    imgElement.classList.add('popup__photo');
     imgElement.src=`${item}`;
     imgElement.width='45';
     imgElement.height='40';
@@ -51,7 +51,7 @@ createAdvertisiments.forEach((item) => {
   cardElement.querySelector('.popup__text--address').textContent = item.offer.address;
   cardElement.querySelector('.popup__text--price').textContent = `${item.offer.price} ₽/ночь`;
   cardElement.querySelector('.popup__type').textContent = apartmentType [item.offer.type];
-  cardElement.querySelector('.popup__text--capacity').textContent = `${item.offer.rooms} комнаты для ${item.offer.quest} гостей`;
+  cardElement.querySelector('.popup__text--capacity').textContent = `${item.offer.rooms} комнаты для ${item.offer.guest} гостей`;
   cardElement.querySelector('.popup__text--time').textContent = `Заезд после ${item.offer.checkin} , выезд до  ${item.offer.checkout}`;
   fillFeatures(cardElement.querySelector('.popup__features'), item.offer.features);
   cardElement.querySelector('.popup__description').textContent = item.offer.description;

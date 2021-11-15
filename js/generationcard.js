@@ -9,8 +9,8 @@ const MAX_PRICE = 99999999;
 const MIN_ROOMS = 1;
 const MAX_ROOMS = 6;
 
-const MIN_QUESTS = 1;
-const MAX_QUESTS = 12;
+const MIN_GUESTS = 1;
+const MAX_GUESTS = 12;
 
 const MIN_LAT = 35.65000;
 const MAX_LAT = 35.70000;
@@ -88,7 +88,7 @@ const createNearestPlaces = () => {
       price: getRandomInteger(MIN_PRICE, MAX_PRICE),
       type: arrayOfTypes[getRandomInteger(0,  arrayOfTypes.length - 1)],
       rooms: getRandomInteger(MIN_ROOMS, MAX_ROOMS),
-      quest: getRandomInteger(MIN_QUESTS, MAX_QUESTS),
+      guest: getRandomInteger(MIN_GUESTS, MAX_GUESTS),
       checkin: arrayOfBookTimes[getRandomInteger(0,  arrayOfBookTimes.length - 1)],
       checkout: arrayOfBookTimes[getRandomInteger(0,  arrayOfBookTimes.length - 1)],
       features: arrayOfFeatures.slice(getRandomInteger(0,  arrayOfFeatures.length - 1)),
