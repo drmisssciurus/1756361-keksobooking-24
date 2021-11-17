@@ -2,7 +2,6 @@ import {makeSimilarAdvertisements} from './generationcard.js';
 
 const map = L.map('map-canvas')
   .on('load', () => {
-    console.log('Карта инициализирована');
   })
   .setView({
     lat: 35.4122,
@@ -41,14 +40,14 @@ const obgPinIcon = L.icon({
 
 mainPinMarker.addTo(map);
 
-mainPinMarker.on('moveend', (evt) => {
-  const markerPosition = (evt.target.getLatLng());
-});
+// mainPinMarker.on('moveend', (evt) => {
+//   const markerPosition = (evt.target.getLatLng());
+// });
 
 const points = makeSimilarAdvertisements();
 
-const makePoints = (points) => {
-  points.forEach((item) => {
+const makePoints = (point) => {
+  point.forEach((item) => {
     const obgPinMarker = L.marker(
       {
         lat: item.location.lat,
