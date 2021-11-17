@@ -45,9 +45,15 @@ const createDisable = (element, className) => {
   Array.from(element.elements).forEach((formElement) => formElement.disabled = true);
 };
 
+createDisable(form, 'ad-form');
+createDisable(formMap, 'map__filters');
+
 // активное состояние
 
 const createActive = (element, className) => {
   element.classList.remove(`${className}--disabled`);
   Array.from(element.elements).forEach((formElement) => formElement.disabled = false);
 };
+
+createActive(form, 'ad-form');
+createActive(formMap, 'map__filters');
