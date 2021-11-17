@@ -4,8 +4,8 @@ const map = L.map('map-canvas')
   .on('load', () => {
   })
   .setView({
-    lat: 35.4122,
-    lng: 139.4130,
+    lat: 35.6895,
+    lng:  139.692,
   }, 10);
 
 L.tileLayer(
