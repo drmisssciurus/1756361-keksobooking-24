@@ -1,4 +1,5 @@
 import {makeSimilarAdvertisements} from './generationcard.js';
+import {makePopup} from './card.js';
 
 const map = L.map('map-canvas')
   .on('load', () => {
@@ -46,8 +47,8 @@ mainPinMarker.addTo(map);
 
 const points = makeSimilarAdvertisements();
 
-const makePoints = (point) => {
-  point.forEach((item) => {
+const makePoints = (pointsArray) => {
+  points.forEach((item) => {
     const obgPinMarker = L.marker(
       {
         lat: item.location.lat,
@@ -59,7 +60,9 @@ const makePoints = (point) => {
       },
     );
 
-    obgPinMarker.addTo(map);
+    obgPinMarker
+      .addTo(map)
+      .bindPopup(makePopup(item));
   });
 };
 
